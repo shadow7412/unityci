@@ -4,6 +4,9 @@ on:
     branches: [ master ] 
 jobs:
   docker:
+    env:
+      UNITY_VERSION: 2020.1.13f1
+      IMAGE_VERSION: 0.15
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,9 +37,12 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-helloworld
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/unityci:${{ env.UNITY_VERSION}}-sonarqube-${{ env.IMAGE_VERSION }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
+          build-args: |
+            UNITY_VERSION=${{ env.UNITY_VERSION }}
+            IMAGE_VERSION=${{ env.IMAGE_VERSION }}
 
       - name: Verify
         run: echo ${{ steps.docker_build.outputs.digest }}
