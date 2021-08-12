@@ -8,3 +8,5 @@ To build for your unity version, you'd run something like this;
     export IMAGE_VERSION=0.12
     docker build --build-arg UNITY_VERSION=$UNITY_VERSION -t shadowbert/unityci:$UNITY_VERSION-sonarqube-$IMAGE_VERSION .
 
+The version of the image I'm using are found on [dockerhub](https://hub.docker.com/repository/docker/shadowbert/unityci).
+Feel free to raise a PR or Issue if the version you need isn't there.
