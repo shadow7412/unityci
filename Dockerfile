@@ -17,4 +17,3 @@ RUN apt update
 RUN apt -y install mono-devel
 RUN export FrameworkPathOverride=/opt/unity/Editor/Data/MonoBleedingEdge/
 RUN dotnet tool install --global dotnet-sonarscanner
-RUN export PATH=$PATH:$HOME/.dotnet/tools
