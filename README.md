@@ -20,9 +20,11 @@ Note: I use gitlab personally, but I'm sure the permise of these commands is tra
 
 ```
 # Add dotnet to the path, and set the DOTNET_ROOT as it's in a nonstandard directory.
-- "export PATH=\"$PATH:`echo /opt/unity/Editor/Data/NetCore/Sdk-*/`:$HOME/.dotnet/tools\""
-- "export DOTNET_ROOT=\"$(dirname $(which dotnet))\""
+ - "export PATH=\"$PATH:$HOME/.dotnet/tools\""
 
+# Generate the solution and csproj files
+ - chmod +x ./ci/generate_sln.sh && ./ci/generate_sln.sh
+ 
 # dotnet freaks out if there are multiple csprojs in the working directory.
 # so to avoid this issue, I just create a temporary directory to step into.
 # As I'm specifying the sln, it doesn't matter to the build.
