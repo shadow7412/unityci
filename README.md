@@ -16,7 +16,8 @@ Note: I use gitlab personally, but I'm sure the permise of these commands is tra
 
 1. Set up your unity build as per [the instructions on the game.ci site](https://game.ci/docs/gitlab/getting-started)
 2. Set $SONAR_PROJECT_KEY and $SONAR_HOST_URL according to your instance of sonarqube.
-3. Run the following commands at the end of your build.
+3. Make sure the com.unity.ide.rider package is installed in your project.
+4. Run the following commands at the end of your build.
 
 ```
 # Add dotnet to the path
