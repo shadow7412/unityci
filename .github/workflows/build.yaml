@@ -1,7 +1,8 @@
 name: build-and-push
 on:
   push:
-    branches: [ master ] 
+    branches: 
+     - "*"
 jobs:
   docker:
     env:
@@ -36,7 +37,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          push: true
+          push: github.ref == 'refs/heads/master'
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/unityci:${{ env.UNITY_VERSION}}-sonarqube-${{ env.IMAGE_VERSION }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
