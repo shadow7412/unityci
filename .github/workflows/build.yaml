@@ -5,8 +5,8 @@ on:
 jobs:
   docker:
     env:
-      UNITY_VERSION: 2020.3.16f1
-      IMAGE_VERSION: 0.15
+      UNITY_VERSION: 2020.3.27f1
+      IMAGE_VERSION: "0.17.0"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
